@@ -17,129 +17,112 @@ npm install sasslets-responsive --save-dev
 Usage
 -----
 
-> Screen sizes, can be overridden:
+> signature
 
 ``` sass
-$screen-size-sm: 480px !default
-$screen-size-md: 768px !default
-$screen-size-lg: 960px !default
-$screen-size-xl: 1200px !default
+@include position(fixed|absolute|relative|etc, $top, $right, $bottom, $left )
 ```
 
-> Highlighting media queries in demo:
+> shortcuts
 
 ``` sass
-@media #{$screen-xs}
-  .screen-xs
-    color: black
-    font-weight: bold
-
-@media #{$screen-sm-up}
-  .screen-sm-up
-    color: black
-    font-weight: bold
-
-@media #{$screen-sm}
-  .screen-sm
-    color: black
-    font-weight: bold
-
-@media #{$screen-md-up}
-  .screen-md-up
-    color: black
-    font-weight: bold
-
-@media #{$screen-md}
-  .screen-md
-    color: black
-    font-weight: bold
-
-@media #{$screen-lg-up}
-  .screen-lg-up
-    color: black
-    font-weight: bold
-
-@media #{$screen-lg}
-  .screen-lg
-    color: black
-    font-weight: bold
-
-@media #{$screen-xl}
-  .screen-xl
-    color: black
-    font-weight: bold
+@include absolute( $top, $right, $bottom, $left )
+@include fixed( $top, $right, $bottom, $left )
+@include relative( $top, $right, $bottom, $left )
 ```
 
-> Demo HTML:
+> example 1
 
-``` html
-<div class="container">
+``` sass
+@include position( fixed, 0, 0, null, 0 )
+```
+> returns:
 
-  <div class="container-fluid">
-    <div class="row">
+``` css
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+```
 
-      <div class="col-lg-12">
-        <div>row</div>
-        <br/>
-      </div>
+> example 2
 
-      <div class="col-lg-6">
-        <div class="demo-col-box">col-lg-6</div>
-      </div>
-      <div class="col-lg-6">
-        <div class="demo-col-box">col-lg-6</div>
-      </div>
+``` sass
+@include position( absolute, 0, 0 )
+```
+> returns:
 
-      <div class="col-lg-12">
-        <br/>
-      </div>
+``` css
+position: absolute;
+top: 0;
+right: 0;
+```
 
-      <div class="col-lg-5 col-lg-offset-2">
-        <div class="demo-col-box">col-lg-5 col-lg-offset-2</div>
-      </div>
-      <div class="col-lg-3">
-        <div class="demo-col-box">col-lg-3</div>
-      </div>
-      <div class="col-lg-2">
-        <div class="demo-col-box">col-lg-2</div>
-      </div>
+> example 3
 
-      <div class="col-lg-12">
-        <br/>
-      </div>
+``` sass
+@include fixed( 1rem, 1rem )
+```
+> returns:
 
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="demo-col-box">col-sm-2 col-md-3 col-lg-4</div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="demo-col-box">col-sm-2 col-md-3 col-lg-4</div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="demo-col-box">col-sm-2 col-md-3 col-lg-4</div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="demo-col-box">col-sm-2 col-md-3 col-lg-4</div>
-      </div>
+``` css
+position: fixed;
+top: 1rem;
+right: 1rem;
+```
 
-      <div class="col-lg-12">
-        <br/>
-      </div>
 
-    </div>
+> example words 1
 
-    <div class="row demo-responsive">
-      <div class="col-sm-4 col-md-3 screen-sm-up">screen-sm-up</div>
-      <div class="col-sm-4 col-md-3 screen-md-up">screen-md-up</div>
-      <div class="col-sm-4 col-md-3 screen-lg-up">screen-lg-up</div>
+``` sass
+@include fixed( top )
+```
+> returns:
 
-      <div class="col-sm-4 col-md-3 screen-xs">screen-xs</div>
-      <div class="col-sm-4 col-md-3 screen-sm">screen-sm</div>
-      <div class="col-sm-4 col-md-3 screen-md">screen-md</div>
-      <div class="col-sm-4 col-md-3 screen-lg">screen-lg</div>
-      <div class="col-sm-4 col-md-3 screen-xl">screen-xl</div>
-    </div>
+``` css
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+```
 
-  </div>
+> example words 2
 
-</div>
+``` sass
+@include fixed( left )
+```
+> returns:
+
+``` css
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+```
+
+> example words 3
+
+``` sass
+@include fixed( top, left )
+```
+> returns:
+
+``` css
+position: fixed;
+top: 0;
+left: 0;
+```
+
+> example words 4
+
+``` sass
+@include fixed( bottom )
+```
+> returns:
+
+``` css
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
 ```
