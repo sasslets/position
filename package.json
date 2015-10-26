@@ -1,6 +1,6 @@
 {
 	"name": "sasslets-position",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "sass responsive variables, container and grid",
 	"main": "make.js",
 	"scripts": {
