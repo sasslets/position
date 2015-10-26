@@ -1,0 +1,53 @@
+
+@mixin position ($position, $top: null, $right: null, $bottom: null, $left: null)
+  position: $position
+
+  @if $top == 'fill' or $top == 'fit'
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+  @elseif $top == 'top'
+    @if $right == 'left'
+      top: 0
+      left: 0
+    @elseif $right == 'right'
+      top: 0
+      right: 0
+    @else
+      top: 0
+      left: 0
+      right: 0
+  @elseif $top == 'right'
+    top: 0
+    right: 0
+    bottom: 0
+  @elseif $top == 'bottom'
+    @if $right == 'left'
+      bottom: 0
+      left: 0
+    @elseif $right == 'right'
+      bottom: 0
+      right: 0
+    @else
+      bottom: 0
+      left: 0
+      right: 0
+  @elseif $top == 'left'
+    top: 0
+    left: 0
+    bottom: 0
+  @else
+    top: $top
+    left: $left
+    right: $right
+    bottom: $bottom
+
+@mixin absolute ($top: null, $right: null, $bottom: null, $left: null)
+  @include position(absolute, $top, $right, $bottom, $left)
+
+@mixin fixed ($top: null, $right: null, $bottom: null, $left: null)
+  @include position(fixed, $top, $right, $bottom, $left)
+
+@mixin relative ($top: null, $right: null, $bottom: null, $left: null)
+  @include position(relative, $top, $right, $bottom, $left)
