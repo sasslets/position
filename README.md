@@ -1,17 +1,13 @@
-Sasslets - responsive
+Sasslets - position
 =====================
-
-> Compliance with bootstrap grid classes
-
-[DEMO](http://sasslets.github.io/responsive/)
 
 Installation
 ------------
 ``` sh
-bower install sasslets-responsive --save-dev
+bower install sasslets-position --save-dev
 ```
 ``` sh
-npm install sasslets-responsive --save-dev
+npm install sasslets-position --save-dev
 ```
 
 Usage
